@@ -16,6 +16,8 @@
 3.如果是my.readme文件则
   自动生成:#this is file_name  背景需求  功能介绍  使用介绍 测试 
 
+4.除基本功能外，还增加了输入参数检测，文件是否存在的交互等功能
+
 使用介绍
 
 1.my_vim.sh  my.py
@@ -25,3 +27,56 @@
 
 
 测试
+
+测试一：
+zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my.sh
+#!/bin/bash 
+
+#############################################
+##
+#文件名: my.sh
+#作者名: zane
+#时间  : 2016-10-27
+#简介  : 
+##
+#############################################
+
+测试二：
+zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my.py
+#!/usr/bin/python 
+
+#############################################
+##
+#文件名: my.py
+#作者名: zane
+#时间  : 2016-10-27
+#简介  : 
+##
+#############################################
+
+测试三：
+zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my_python.py -d "this is a test"
+#!/usr/bin/python 
+
+#############################################
+##
+#文件名: my_python.py
+#作者名: zane
+#时间  : 2016-10-27
+#简介  : this is a test
+##
+#############################################
+
+测试四
+zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my.readme
+#this is my.readme 
+
+背景需求 
+
+功能介绍 
+
+使用介绍 
+
+测试
+
+
