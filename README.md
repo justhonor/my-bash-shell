@@ -9,4 +9,3 @@ bahs shell 脚本使用记录
 
 代码实现                     ----> xxx.sh
 
-测试用例与结果                ----> xxx.test
