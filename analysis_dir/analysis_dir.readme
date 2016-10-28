@@ -4,7 +4,7 @@
 
 目录下面有N个文件和目录，且都是存放的是脚本文件；
 那么分析这些脚本的类型种类，总代码长度，平均代码长度等
-并想找出那些代码行数大于150行的脚本，放到一个新目录中
+并想找出那些代码行数大于150行的脚本，命名后放到一个新目录中
 
 
 
@@ -26,9 +26,9 @@
 
 使用介绍
 
-1.analysis_dir.sh source_dir_name -f [dir] [n]
+1.analysis_dir.sh {source_dir_name} [dir] [n]
 
-2.analysis_dir.sh source_dir_name [-l]
+2.analysis_dir.sh {source_dir_name} [-l]
 
 
 
