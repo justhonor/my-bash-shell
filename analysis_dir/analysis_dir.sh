@@ -17,11 +17,6 @@ filenum=0
 lines=100
 dir=~/morelines
 
-#创建目录
-if ! test -d $dir;then
-	mkdir $dir
-fi
-
 #判断参数是否正确，并使用
 if [ $# == 2 ] && [ -r $1 ];then
 	if [ $2 == '-l' ];then
@@ -51,6 +46,11 @@ else
 	echo "analysis_dir.sh {source_dir_name} [-l] [dir] [n]"
 	exit 1
 
+fi
+
+#创建目录
+if ! test -d $dir;then
+	mkdir $dir
 fi
 
 #analysis()
@@ -84,4 +84,4 @@ FindFile()
 	done
 }
 
-#FindFile
+FindFile
