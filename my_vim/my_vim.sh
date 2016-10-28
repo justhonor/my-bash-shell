@@ -42,7 +42,7 @@ echo "#简介  : $describe" >> $filename
 echo "##" >> $filename
 echo "#############################################" >> $filename
 chmod a+x $filename
-	cat $filename
+	vim $filename
 }
 
 IsReadMe()
@@ -52,7 +52,7 @@ echo -e "背景需求 \n" >> $filename
 echo -e "功能介绍 \n" >> $filename
 echo -e "使用介绍 \n" >> $filename
 echo -e "测试 \n"     >> $filename
-	cat $filename
+	vim $filename
 
 }
 

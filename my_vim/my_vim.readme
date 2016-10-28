@@ -18,6 +18,8 @@
 
 4.除基本功能外，还增加了输入参数检测，文件是否存在的交互等功能
 
+5.在完成上述功能之后创建脚本之后，直接调用vim接口使之直接进入vim进程
+
 使用介绍
 
 1.my_vim.sh  my.py
@@ -77,6 +79,6 @@ zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my.readme
 
 使用介绍 
 
-测试
+
 
 
