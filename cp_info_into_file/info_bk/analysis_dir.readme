@@ -1,0 +1,61 @@
+#this is analysis_dir.readme
+
+背景需求
+
+目录下面有N个文件和目录，且都是存放的是脚本文件；
+那么分析这些脚本的类型种类，总代码长度，平均代码长度等
+并想找出那些代码行数大于150行的脚本，命名后放到一个新目录中
+
+
+
+
+功能介绍
+
+1.找出代码行数大于n行的脚本文件，并复制到指定目录
+  默认n=100;      指定目录：~/morelines;
+
+
+2.给出一些统计信息：
+	总共多少个脚本
+	共多少行代码
+	平均代码长度
+	最长有多长
+	最短有多长
+	注释平均占比
+
+
+使用介绍
+
+1.analysis_dir.sh {source_dir_name} [dir] [n]
+
+
+测试
+
+使用script目录作为例子
+
+aiapple@ubuntu:~/git/my-bash-shell/analysis_dir$ ./analysis_dir.sh script/ copy 150
+ there is 217 lines in script/check_cpu.sh 
+ there is 217 lines in script/check_cpu.sh.bak 
+ there is 197 lines in script/check_mem.pl 
+ there is 167 lines in script/check_mem.sh 
+ there is 200 lines in script/check_mem.sh.bak 
+ there is 164 lines in script/rc.functions 
+共有38个脚本
+共有1643行代码
+平均有43.23行
+最大的有217行
+最小的有3行
+注释有230行
+注释占比13.00%
+
+aiapple@ubuntu:~/git/my-bash-shell/analysis_dir$ ls -l copy/
+ls: 初始化月份字符串出错
+总用量 44
+-rwxrwxr-x 1 aiapple aiapple 6792 10�� 28 13:40 check_cpu.sh
+-rwxrwxr-x 1 aiapple aiapple 6792 10�� 28 13:40 check_cpu.sh.bak
+-rwxrwxr-x 1 aiapple aiapple 6643 10�� 28 13:40 check_mem.pl
+-rwxrwxr-x 1 aiapple aiapple 4435 10�� 28 13:40 check_mem.sh
+-rwxrwxr-x 1 aiapple aiapple 5840 10�� 28 13:40 check_mem.sh.bak
+-rwxrwxr-x 1 aiapple aiapple 3511 10�� 28 13:40 rc.functions
+
+

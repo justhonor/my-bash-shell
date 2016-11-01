@@ -1,0 +1,47 @@
+#this is login_manege.readme 
+
+背景需求 
+
+管理服务器的时候，难免要登陆到各机器去察看系统情况.
+每次都需要IP 密码的输入 太重复.尤其是在短时间内，
+退出登陆后，又要再此登陆，不断在输入 同样的IP，密码；
+
+因此一个自动化登陆管理脚本是很有效果的。
+
+功能介绍 
+
+
+1.使用别名直接登陆:
+	基于SSH
+	判断网路是否通
+
+2.管理登陆帐号
+	添加:判断是否存在,判断网络是否通
+	删除
+	察看
+	更改别名:先删再加，只是IP不删
+
+3.察看使用帮助
+
+使用介绍 
+
+登陆 
+login_manage.sh alias_name
+
+添加
+login_manage.sh -a ip alias_name
+
+删除
+login_manage.sh -d [ip|alias_name]
+
+察看
+login_manage.sh -l
+
+更改别名
+login_manage.sh -c source_alias_name destiant_alias_name
+
+使用帮助
+login_manage.sh -h
+
+测试 
+
