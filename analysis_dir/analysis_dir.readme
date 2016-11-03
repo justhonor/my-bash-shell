@@ -57,5 +57,3 @@ ls: 初始化月份字符串出错
 -rwxrwxr-x 1 aiapple aiapple 4435 10�� 28 13:40 check_mem.sh
 -rwxrwxr-x 1 aiapple aiapple 5840 10�� 28 13:40 check_mem.sh.bak
 -rwxrwxr-x 1 aiapple aiapple 3511 10�� 28 13:40 rc.functions
-
-

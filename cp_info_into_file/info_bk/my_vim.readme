@@ -69,16 +69,3 @@ zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my_python.py -d "this is a 
 ##
 #############################################
 
-测试四
-zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my.readme
-#this is my.readme 
-
-背景需求 
-
-功能介绍 
-
-使用介绍 
-
-
-
-

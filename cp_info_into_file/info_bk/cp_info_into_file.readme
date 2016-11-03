@@ -16,14 +16,19 @@
 
 3.自动比较各文件是否更新如已经更新，则替换为最新的内容;
 
+可扩展功能:
+1.判断原文件是否在,如果原文件不在,则认为整个工程已删除,则也删除README.md中对应内容;
 
 
 使用介绍 
 
-cp_info_into_file.sh 
-自动寻找未拷贝文件，然后拷贝信息，到指定文件;
+./cp_info_into_file.sh 
 
 
 测试 
 
+aiapple@ubuntu:~/git/my-bash-shell/cp_info_into_file$ ./cp_info_into_file.sh 
+目录已存在删除重建:d,更新:p
+
+my_vim.readme 已经更新内容
 
