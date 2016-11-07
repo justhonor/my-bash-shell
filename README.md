@@ -83,54 +83,6 @@ ls: 初始化月份字符串出错
 
 
 
-#this is login_manege.readme 
-
-背景需求 
-
-管理服务器的时候，难免要登陆到各机器去察看系统情况.
-每次都需要IP 密码的输入 太重复.尤其是在短时间内，
-退出登陆后，又要再此登陆，不断在输入 同样的IP，密码.
-
-因此一个自动化登陆管理脚本是很有效果
-
-功能介绍 
-
-
-1.使用别名直接登陆:
-	基于SSH
-	判断网路是否通
-
-2.管理登陆帐号
-	添加:判断是否存在,判断网络是否通
-	删除
-	察看
-	更改别名:先删再加，只是IP不删
-
-3.察看使用帮助
-
-使用介绍 
-
-登陆 
-login_manage.sh alias_name
-
-添加
-login_manage.sh -a ip alias_name
-
-删除
-login_manage.sh -d [ip|alias_name]
-
-察看
-login_manage.sh -l
-
-更改别名
-login_manage.sh -c source_alias_name destiant_alias_name
-
-使用帮助
-login_manage.sh -h
-
-测试 
-
-======================================================================================
 
 
 
@@ -203,54 +155,6 @@ ls: 初始化月份字符串出错
 
 
 
-#this is login_manege.readme 
-
-背景需求 
-
-管理服务器的时候，难免要登陆到各机器去察看系统情况.
-每次都需要IP 密码的输入 太重复.尤其是在短时间内，
-退出登陆后，又要再此登陆，不断在输入 同样的IP，密码.
-
-因此一个自动化登陆管理脚本是很有效果
-
-功能介绍 
-
-
-1.使用别名直接登陆:
-	基于SSH
-	判断网路是否通
-
-2.管理登陆帐号
-	添加:判断是否存在,判断网络是否通
-	删除
-	察看
-	更改别名:先删再加，只是IP不删
-
-3.察看使用帮助
-
-使用介绍 
-
-登陆 
-login_manage.sh alias_name
-
-添加
-login_manage.sh -a ip alias_name
-
-删除
-login_manage.sh -d [ip|alias_name]
-
-察看
-login_manage.sh -l
-
-更改别名
-login_manage.sh -c source_alias_name destiant_alias_name
-
-使用帮助
-login_manage.sh -h
-
-测试 
-
-======================================================================================
 
 
 
@@ -393,54 +297,6 @@ my_vim.readme 已经更新内容
 ======================================================================================
 
 
-#this is login_manege.readme 
-
-背景需求 
-
-管理服务器的时候，难免要登陆到各机器去察看系统情况.
-每次都需要IP 密码的输入 太重复.尤其是在短时间内，
-退出登陆后，又要再此登陆，不断在输入 同样的IP，密码.
-
-因此一个自动化登陆管理脚本是很有效果
-
-功能介绍 
-
-
-1.使用别名直接登陆:
-	基于SSH
-	判断网路是否通
-
-2.管理登陆帐号
-	添加:判断是否存在,判断网络是否通
-	删除
-	察看
-	更改别名:先删再加，只是IP不删
-
-3.察看使用帮助
-
-使用介绍 
-
-登陆 
-login_manage.sh alias_name
-
-添加
-login_manage.sh -a ip alias_name
-
-删除
-login_manage.sh -d [ip|alias_name]
-
-察看
-login_manage.sh -l
-
-更改别名
-login_manage.sh -c source_alias_name destiant_alias_name
-
-使用帮助
-login_manage.sh -h
-
-测试 
-
-======================================================================================
 
 
 
@@ -515,6 +371,86 @@ zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my_python.py -d "this is a 
 #简介  : this is a test
 ##
 #############################################
+
+======================================================================================
+
+
+#this is login_manege.readme 
+
+背景需求 
+
+管理服务器的时候，难免要登陆到各机器去察看系统情况.
+每次都需要IP 密码的输入 太重复.尤其是在短时间内，
+退出登陆后，又要再此登陆，不断在输入 同样的IP，密码.
+
+因此一个自动化登陆管理脚本是很有效果
+
+功能介绍 
+
+
+1.使用别名直接登陆:
+	基于SSH
+	判断网路是否通
+
+2.管理登陆帐号
+	添加:判断是否存在,判断网络是否通
+	删除
+	察看
+	更改别名:先删再加，只是IP不删
+
+3.察看使用帮助
+
+问题：
+1.密码此时是明文存在server.cnf文件中,显然不合适
+
+2.ssh登陆尚不稳定
+
+3.若某别名的前缀，与另一个别名一样，则无法正常登陆
+如：
+aliyun root shhsdhf 12.1.1.7
+ali    root dawang  139.196.58.188
+此时登陆aliyun,是可以的。但ali则会出错
+
+4.登陆超时没有自动退出。
+
+使用介绍 
+
+登陆 
+login_manage.sh -i  alias_name
+
+添加
+login_manage.sh -a alias_name user passwd ip 
+
+删除
+login_manage.sh -d [ip|alias_name]
+
+更改别名
+login_manage.sh -c source_alias_name destiant_alias_name
+
+察看
+login_manage.sh -l
+
+使用帮助
+login_manage.sh -h
+
+测试 
+aiapple@ubuntu:~/git/my-bash-shell/login_manage$ ./login_manege.sh -i ali
+准备登陆ali,IP:139.196.58.188
+网络畅通。。。。。
+执行登陆程序
+spawn ssh root@139.196.58.188
+root@139.196.58.188's password: 
+Welcome to Ubuntu 12.04.5 LTS (GNU/Linux 3.2.0-67-generic-pae i686)
+
+ * Documentation:  https://help.ubuntu.com/
+New release '14.04.1 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Welcome to aliyun Elastic Compute Service!
+
+Last login: Sun Nov  6 19:10:56 2016 from 114.219.76.109
+root@iZ11xkhdslnZ:~# 
 
 ======================================================================================
 
