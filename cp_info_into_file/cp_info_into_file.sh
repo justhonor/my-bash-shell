@@ -22,7 +22,7 @@ if ! test -d info_bk;then
 else
 	echo -e "目录已存在"
 	read -s -p "删除:d,更新:p" -t 5 -n 1 input
-	echo -e "\n"
+	echo -e "\t"
 	if [ $input == 'd' ];then
 		#echo "this is d"
 		rm -rf info_bk
