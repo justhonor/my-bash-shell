@@ -26,6 +26,9 @@ else
 	if [ $input == 'd' ];then
 		#echo "this is d"
 		rm -rf info_bk
+		rm -rf $my_readmd
+		
+		touch $my_readmd
 		info_bk=`mkdir info_bk`
 	fi
 		
@@ -46,6 +49,7 @@ do
 			
 			#判断info_bk中是否已有文件
 			#没有则,拷贝文件,追加内容
+			#新增文件,追加在后面
 			if ! test -f info_bk/$realname;then
 				#拷贝文件到目录,并追加内容
 				cp -ar $file info_bk
@@ -60,7 +64,8 @@ do
 					continue	
 				else 
 				   	#有旧文件,且已经更新,则删除旧内容,追加新内容
-					sed  -i "/^#this is $realname/,/============/d" $my_readmd 
+					#echo -e "删除realname=$realname,my_reamd=$my_readmd"
+					sed  -i "/^#*this is $realname/,/============/d" $my_readmd 
 					
 					#删除旧文件,复制新文件,并追加内容
 				        rm -rf info_bk/$realname
