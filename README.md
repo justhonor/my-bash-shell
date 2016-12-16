@@ -1,262 +1,61 @@
-# my-bash-shell
-bahs shell 脚本使用记录
-
-简介
-每个脚本都放在单独目录中，清晰可见；
-以实际应用场景为基础的脚本代码；
-
-包含背景需求，功能介绍，使用介绍 ---> xxx.readme
-
-代码实现                     ----> xxx.sh
-
-
-
-
-
-
-
-
-
-
-
-#this is analysis_dir.readme
+##this is analysis_dir.readme
 
 背景需求
 
-目录下面有N个文件和目录，且都是存放的是脚本文件；
-那么分析这些脚本的类型种类，总代码长度，平均代码长度等
-并想找出那些代码行数大于150行的脚本，命名后放到一个新目录中
+目录下面有N个文件和目录，且都是存放的是脚本文件；<br>
+那么分析这些脚本的类型种类，总代码长度，平均代码长度等<br>
+并想找出那些代码行数大于150行的脚本，命名后放到一个新目录中<br>
 
-
-
-
+<br>
+<br>
 功能介绍
 
-1.找出代码行数大于n行的脚本文件，并复制到指定目录
-  默认n=100;      指定目录：~/morelines;
-
-
-2.给出一些统计信息：
-	总共多少个脚本
-	共多少行代码
-	平均代码长度
-	最长有多长
-	最短有多长
-	注释平均占比
-
-
-使用介绍
-
-1.analysis_dir.sh {source_dir_name} [dir] [n]
-
-
-测试
-
-使用script目录作为例子
-
-aiapple@ubuntu:~/git/my-bash-shell/analysis_dir$ ./analysis_dir.sh script/ copy 150
- there is 217 lines in script/check_cpu.sh 
- there is 217 lines in script/check_cpu.sh.bak 
- there is 197 lines in script/check_mem.pl 
- there is 167 lines in script/check_mem.sh 
- there is 200 lines in script/check_mem.sh.bak 
- there is 164 lines in script/rc.functions 
-共有38个脚本
-共有1643行代码
-平均有43.23行
-最大的有217行
-最小的有3行
-注释有230行
-注释占比13.00%
-
-aiapple@ubuntu:~/git/my-bash-shell/analysis_dir$ ls -l copy/
-ls: 初始化月份字符串出错
-总用量 44
--rwxrwxr-x 1 aiapple aiapple 6792 10�� 28 13:40 check_cpu.sh
--rwxrwxr-x 1 aiapple aiapple 6792 10�� 28 13:40 check_cpu.sh.bak
--rwxrwxr-x 1 aiapple aiapple 6643 10�� 28 13:40 check_mem.pl
--rwxrwxr-x 1 aiapple aiapple 4435 10�� 28 13:40 check_mem.sh
--rwxrwxr-x 1 aiapple aiapple 5840 10�� 28 13:40 check_mem.sh.bak
--rwxrwxr-x 1 aiapple aiapple 3511 10�� 28 13:40 rc.functions
-======================================================================================
-
-
-
-
-
-
-
-
-
-
-
-
-#this is analysis_dir.readme
-
-背景需求
-
-目录下面有N个文件和目录，且都是存放的是脚本文件；
-那么分析这些脚本的类型种类，总代码长度，平均代码长度等
-并想找出那些代码行数大于150行的脚本，命名后放到一个新目录中
-
-
-
-
-功能介绍
-
-1.找出代码行数大于n行的脚本文件，并复制到指定目录
-  默认n=100;      指定目录：~/morelines;
-
-
-2.给出一些统计信息：
-	总共多少个脚本
-	共多少行代码
-	平均代码长度
-	最长有多长
-	最短有多长
-	注释平均占比
-
-
-使用介绍
-
-1.analysis_dir.sh {source_dir_name} [dir] [n]
-
-
-测试
-
-使用script目录作为例子
-
-aiapple@ubuntu:~/git/my-bash-shell/analysis_dir$ ./analysis_dir.sh script/ copy 150
- there is 217 lines in script/check_cpu.sh 
- there is 217 lines in script/check_cpu.sh.bak 
- there is 197 lines in script/check_mem.pl 
- there is 167 lines in script/check_mem.sh 
- there is 200 lines in script/check_mem.sh.bak 
- there is 164 lines in script/rc.functions 
-共有38个脚本
-共有1643行代码
-平均有43.23行
-最大的有217行
-最小的有3行
-注释有230行
-注释占比13.00%
-
-aiapple@ubuntu:~/git/my-bash-shell/analysis_dir$ ls -l copy/
-ls: 初始化月份字符串出错
-总用量 44
--rwxrwxr-x 1 aiapple aiapple 6792 10�� 28 13:40 check_cpu.sh
--rwxrwxr-x 1 aiapple aiapple 6792 10�� 28 13:40 check_cpu.sh.bak
--rwxrwxr-x 1 aiapple aiapple 6643 10�� 28 13:40 check_mem.pl
--rwxrwxr-x 1 aiapple aiapple 4435 10�� 28 13:40 check_mem.sh
--rwxrwxr-x 1 aiapple aiapple 5840 10�� 28 13:40 check_mem.sh.bak
--rwxrwxr-x 1 aiapple aiapple 3511 10�� 28 13:40 rc.functions
-======================================================================================
-
-
-
-
-
-
-
-
-
-
-#this is cp_info_into_file.readme 
-
-背景需求 
-
-将指定类型文本的信息提取并加到指定文本中
-
-例如：
-有n个脚本readme文件，且在不同目录下.如/analysis_dir.readme且这些文件中都有背景信息,功能信息；此时要将这些背景信息和各自脚本名如analysis_dir.sh，都自动加到如README.md当中；
-
-
-功能介绍 
-
-1.遍历my-bash-shell目录找到xxx.readme文件
-
-2.将xxx.readme内容添加到README.md中去
-
-3.自动比较各文件是否更新如已经更新，则替换为最新的内容;
-
-可扩展功能:
-1.判断原文件是否在,如果原文件不在,则认为整个工程已删除,则也删除README.md中对应内容;
-
-
-使用介绍 
-
-./cp_info_into_file.sh 
-
-
-测试 
-
-aiapple@ubuntu:~/git/my-bash-shell/cp_info_into_file$ ./cp_info_into_file.sh 
-目录已存在删除重建:d,更新:p
-
-my_vim.readme 已经更新内容
-
-======================================================================================
-
-
-#this is analysis_dir.readme
-
-背景需求
-
-目录下面有N个文件和目录，且都是存放的是脚本文件；
-那么分析这些脚本的类型种类，总代码长度，平均代码长度等
-并想找出那些代码行数大于150行的脚本，命名后放到一个新目录中
-
-
-
-
-功能介绍
-
-1.找出代码行数大于n行的脚本文件，并复制到指定目录
-  默认n=100;      指定目录：~/morelines;
-
-
-2.给出一些统计信息：
-	总共多少个脚本
-	共多少行代码
-	平均代码长度
-	最长有多长
-	最短有多长
-	注释平均占比
-
-
-使用介绍
-
-1.analysis_dir.sh {source_dir_name} [dir] [n]
-
-
-测试
-
-使用script目录作为例子
-
-aiapple@ubuntu:~/git/my-bash-shell/analysis_dir$ ./analysis_dir.sh script/ copy 150
- there is 217 lines in script/check_cpu.sh 
- there is 217 lines in script/check_cpu.sh.bak 
- there is 197 lines in script/check_mem.pl 
- there is 167 lines in script/check_mem.sh 
- there is 200 lines in script/check_mem.sh.bak 
- there is 164 lines in script/rc.functions 
-共有38个脚本
-共有1643行代码
-平均有43.23行
-最大的有217行
-最小的有3行
-注释有230行
-注释占比13.00%
-
-aiapple@ubuntu:~/git/my-bash-shell/analysis_dir$ ls -l copy/
-ls: 初始化月份字符串出错
-总用量 44
--rwxrwxr-x 1 aiapple aiapple 6792 10�� 28 13:40 check_cpu.sh
--rwxrwxr-x 1 aiapple aiapple 6792 10�� 28 13:40 check_cpu.sh.bak
--rwxrwxr-x 1 aiapple aiapple 6643 10�� 28 13:40 check_mem.pl
--rwxrwxr-x 1 aiapple aiapple 4435 10�� 28 13:40 check_mem.sh
--rwxrwxr-x 1 aiapple aiapple 5840 10�� 28 13:40 check_mem.sh.bak
--rwxrwxr-x 1 aiapple aiapple 3511 10�� 28 13:40 rc.functions
+1.找出代码行数大于n行的脚本文件，并复制到指定目录<br>
+  默认n=100;      指定目录：~/morelines;<br>
+
+
+2.给出一些统计信息：<br>
+	总共多少个脚本<br>
+	共多少行代码<br>
+	平均代码长度<br>
+	最长有多长<br>
+	最短有多长<br>
+	注释平均占比<br>
+
+
+使用介绍<br>
+
+1.analysis_dir.sh {source_dir_name} [dir] [n]<br>
+
+
+测试<br>
+
+使用script目录作为例子<br>
+
+aiapple@ubuntu:~/git/my-bash-shell/analysis_dir$ ./analysis_dir.sh script/ copy 150 <br>
+ there is 217 lines in script/check_cpu.sh      <br>
+ there is 217 lines in script/check_cpu.sh.bak  <br>
+ there is 197 lines in script/check_mem.pl      <br>
+ there is 167 lines in script/check_mem.sh      <br>
+ there is 200 lines in script/check_mem.sh.bak  <br>
+ there is 164 lines in script/rc.functions      <br>
+共有38个脚本           <br>
+共有1643行代码         <br>
+平均有43.23行          <br>
+最大的有217行          <br>
+最小的有3行            <br>
+注释有230行            <br>
+注释占比13.00%         <br>
+
+aiapple@ubuntu:~/git/my-bash-shell/analysis_dir$ ls -l copy/   <br>
+ls: 初始化月份字符串出错<br>
+总用量 44 <br>
+-rwxrwxr-x 1 aiapple aiapple 6792 10�� 28 13:40 check_cpu.sh     <br>
+-rwxrwxr-x 1 aiapple aiapple 6792 10�� 28 13:40 check_cpu.sh.bak <br>
+-rwxrwxr-x 1 aiapple aiapple 6643 10�� 28 13:40 check_mem.pl     <br>
+-rwxrwxr-x 1 aiapple aiapple 4435 10�� 28 13:40 check_mem.sh     <br>
+-rwxrwxr-x 1 aiapple aiapple 5840 10�� 28 13:40 check_mem.sh.bak <br>
+-rwxrwxr-x 1 aiapple aiapple 3511 10�� 28 13:40 rc.functions     <br>
 ======================================================================================
 
 
@@ -293,84 +92,6 @@ aiapple@ubuntu:~/git/my-bash-shell/cp_info_into_file$ ./cp_info_into_file.sh
 目录已存在删除重建:d,更新:p
 
 my_vim.readme 已经更新内容
-
-======================================================================================
-
-
-
-
-
-
-#this is my_vim.readme
-
-背景需求
-
-脚本编写时总有固定的头格式：脚本解析器位置，脚本名，作者，时间，功能；等
-每次都重复输入很多东西，是时候写个脚本改变这一切了；
-
-
-功能介绍
-
-1.根据脚本名称如my.sh,my.py
-  自动生成脚本解析器位置，脚本名，作者，时间，
-
-2.使用参数，输入功能简述;
-
-3.如果是my.readme文件则
-  自动生成:#this is file_name  背景需求  功能介绍  使用介绍 测试 
-
-4.除基本功能外，还增加了输入参数检测，文件是否存在的交互等功能
-
-5.在完成上述功能之后创建脚本之后，直接调用vim接口使之直接进入vim进程
-
-使用介绍
-
-1.my_vim.sh  my.py
-
-2.my_vim.sh  my.py  [-d] "your describe"
-
-
-
-测试
-
-测试一：
-zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my.sh
-#!/bin/bash 
-
-#############################################
-##
-#文件名: my.sh
-#作者名: zane
-#时间  : 2016-10-27
-#简介  : 
-##
-#############################################
-
-测试二：
-zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my.py
-#!/usr/bin/python 
-
-#############################################
-##
-#文件名: my.py
-#作者名: zane
-#时间  : 2016-10-27
-#简介  : 
-##
-#############################################
-
-测试三：
-zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my_python.py -d "this is a test"
-#!/usr/bin/python 
-
-#############################################
-##
-#文件名: my_python.py
-#作者名: zane
-#时间  : 2016-10-27
-#简介  : this is a test
-##
-#############################################
 
 ======================================================================================
 
@@ -451,6 +172,185 @@ Welcome to aliyun Elastic Compute Service!
 
 Last login: Sun Nov  6 19:10:56 2016 from 114.219.76.109
 root@iZ11xkhdslnZ:~# 
+
+======================================================================================
+
+
+#this is login_notify.readme 
+
+背景需求 
+
+有人到你家里来你还不知道。
+家里东西被搬光,你却不知道。
+还是装个云摄像头吧。
+
+功能介绍 
+
+1.有人登陆系统则发邮件
+	邮件内容：用户名,终端,时间,主机名
+		  现在操作命令的历史文件
+		  
+2.有人退出系统则发邮件
+	邮件内容：用户名,终端,时间,主机名
+		  现在操作命令的历史文件
+		  录制其操作的脚本文件
+
+
+内容包括:
+	录制其操作的脚本文件
+	操作命令的历史文件
+	登陆log文件:
+		登陆时登陆中登陆后
+
+分析:
+#通过/var/log/auth.log监控用户登陆行为
+#如果有用户登陆/退出则给root发邮件
+#以登陆时间和用户来控制不重复发送
+
+#每20秒统计一下信息
+#可以使用cron任务调度
+
+#上一次用户登陆状态
+#与这此用户登陆状态
+
+#root在/etc/profile 中添加script，并保存在/root目录中
+#等到用户退出时将，录制文件，发送邮件。
+
+
+使用介绍 
+
+测试 
+
+======================================================================================
+
+
+#this is my_vim.readme
+
+背景需求
+
+脚本编写时总有固定的头格式：脚本解析器位置，脚本名，作者，时间，功能；等
+每次都重复输入很多东西，是时候写个脚本改变这一切了；
+
+
+功能介绍
+
+1.根据脚本名称如my.sh,my.py
+  自动生成脚本解析器位置，脚本名，作者，时间，
+
+2.使用参数，输入功能简述;
+
+3.如果是my.readme文件则
+  自动生成:#this is file_name  背景需求  功能介绍  使用介绍 测试 
+
+4.除基本功能外，还增加了输入参数检测，文件是否存在的交互等功能
+
+5.在完成上述功能之后创建脚本之后，直接调用vim接口使之直接进入vim进程
+
+使用介绍
+
+1.my_vim.sh  my.py
+
+2.my_vim.sh  my.py  [-d] "your describe"
+
+
+
+测试
+
+测试一：
+zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my.sh
+#!/bin/bash 
+
+#############################################
+##
+#文件名: my.sh
+#作者名: zane
+#时间  : 2016-10-27
+#简介  : 
+##
+#############################################
+
+测试二：
+zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my.py
+#!/usr/bin/python 
+
+#############################################
+##
+#文件名: my.py
+#作者名: zane
+#时间  : 2016-10-27
+#简介  : 
+##
+#############################################
+
+测试三：
+zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my_python.py -d "this is a test"
+#!/usr/bin/python 
+
+#############################################
+##
+#文件名: my_python.py
+#作者名: zane
+#时间  : 2016-10-27
+#简介  : this is a test
+##
+#############################################
+
+======================================================================================
+
+
+#this is service_monitor.readme 
+
+背景需求 
+
+    运维核心就是保证线上业务稳定运而线上业务是否在运行呢？
+所以监控线上业务进程是否在很重要.
+
+功能介绍 
+
+	开机自启动
+	监控httpd服务默认端口80
+	服务不在则重启服务并发送告警
+
+
+
+
+使用介绍 
+
+测试 
+
+======================================================================================
+
+
+#this is sys_monitor.readme 
+
+背景需求 
+
+监控服务器状态及时预警是运维职责所在。
+
+
+功能介绍 
+
+监控服务器关键状态指标,发送邮件
+指标:
+	CPU
+	MEMORY
+	SWAP
+	ROOT/USR/VAR DISK SPACE 
+
+邮件:
+	发送给本机邮件
+	
+周期报警:
+	如若报警为解除,则建立周期任务,给刚上线的用户直接弹消息
+
+使用介绍 
+
+aiapple@ubuntu:~/git/my-bash-shell/sys_monitor$ ./sys_monitor.sh 
+The file is exsit~
+Delete:d  Flush:f	
+Adding a new report in this file........
+
+测试 
 
 ======================================================================================
 
