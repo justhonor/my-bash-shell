@@ -71,13 +71,15 @@ do
 				diff $file info_bk/$realname &>/dev/null
 				#有旧文件$,但没有更新,则退出本次循环
 				if [ $? == 0 ];then    	
-					#echo -e "有旧文件$realname,但没有更新,则退出\n"
+					#echo -e "有旧文件$realname,但没有更新,退出\n"
 					continue	
 				else 
 				   	#有旧文件,且已经更新,则删除旧内容,追加新内容
+				        #如有多个内容 仅能删除一个,略显不足
 					#echo -e "删除realname=$realname,my_reamd=$my_readmd"
-					sed  -i "/^#*this is $realname/,/============/d" $my_readmd 
-					
+					sed  -i "/^##This is $realname/,/============/d" $my_readmd 
+
+
 					#删除旧文件,复制新文件,并追加内容
 				        rm -rf info_bk/$realname
 					cp -ar $file info_bk

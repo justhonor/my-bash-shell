@@ -1,6 +1,6 @@
 ##This is login_manege.readme  <br>
 
-背景需求  <br>
+####背景需求  <br>
 
 管理服务器的时候，难免要登陆到各机器去察看系统情况. <br>
 每次都需要IP 密码的输入 太重复.尤其是在短时间内， <br>
@@ -8,7 +8,7 @@
 
 因此一个自动化登陆管理脚本是很有效果 <br>
 
-功能介绍  <br>
+####功能介绍  <br>
 
 
 1.使用别名直接登陆: <br>
@@ -23,7 +23,7 @@
 
 3.察看使用帮助 <br>
 
-问题： <br>
+#####问题： <br>
 1.密码此时是明文存在server.cnf文件中,显然不合适 <br>
 
 2.ssh登陆尚不稳定 <br>
@@ -36,7 +36,7 @@ ali    root dawang  139.196.58.188 <br>
 
 4.登陆超时没有自动退出。 <br>
 
-使用介绍  <br>
+####使用介绍  <br>
 
 登陆  <br>
 login_manage.sh -i  alias_name <br>
@@ -56,7 +56,7 @@ login_manage.sh -l <br>
 使用帮助 <br>
 login_manage.sh -h <br>
 
-测试  <br>
+####测试  <br>
 aiapple@ubuntu:~/git/my-bash-shell/login_manage$ ./login_manege.sh -i ali <br>
 准备登陆ali,IP:139.196.58.188 <br>
 网络畅通。。。。。 <br>
@@ -65,13 +65,13 @@ spawn ssh root@139.196.58.188 <br>
 root@139.196.58.188's password:  <br>
 Welcome to Ubuntu 12.04.5 LTS (GNU/Linux 3.2.0-67-generic-pae i686) <br>
 
- * Documentation:  https://help.ubuntu.com/ <br>
+Documentation:  https://help.ubuntu.com/ <br>
 New release '14.04.1 LTS' available. <br>
 Run 'do-release-upgrade' to upgrade to it. <br>
-
 
 Welcome to aliyun Elastic Compute Service! <br>
 
 Last login: Sun Nov  6 19:10:56 2016 from 114.219.76.109 <br>
 root@iZ11xkhdslnZ:~#  <br>
+
 
