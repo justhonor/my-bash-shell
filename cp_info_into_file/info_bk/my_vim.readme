@@ -1,39 +1,39 @@
 ##This is my_vim.readme<br>
-<br>
-背景需求<br>
-<br>
+
+####背景需求<br>
+
 脚本编写时总有固定的头格式：脚本解析器位置，脚本名，作者，时间，功能；等<br>
 每次都重复输入很多东西，是时候写个脚本改变这一切了；<br>
-<br>
-<br>
-功能介绍<br>
-<br>
+
+
+####功能介绍<br>
+
 1.根据脚本名称如my.sh,my.py<br>
   自动生成脚本解析器位置，脚本名，作者，时间，<br>
-<br>
+
 2.使用参数，输入功能简述;<br>
-<br>
+
 3.如果是my.readme文件则<br>
-  自动生成:#this is file_name  背景需求  功能介绍  使用介绍 测试 <br>
-<br>
+  自动生成:##This is file_name  背景需求  功能介绍  使用介绍 测试 <br>
+
 4.除基本功能外，还增加了输入参数检测，文件是否存在的交互等功能<br>
-<br>
+
 5.在完成上述功能之后创建脚本之后，直接调用vim接口使之直接进入vim进程<br>
-<br>
-使用介绍<br>
-<br>
+
+####使用介绍<br>
+
 1.my_vim.sh  my.py<br>
-<br>
+
 2.my_vim.sh  my.py  [-d] "your describe"<br>
-<br>
-<br>
-<br>
-测试<br>
-<br>
+
+
+
+####测试<br>
+
 测试一：<br>
 zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my.sh<br>
 \#!/bin/bash <br>
-<br>
+
 \#############################################<br>
 \##<br>
 \#文件名: my.sh<br>
@@ -42,11 +42,11 @@ zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my.sh<br>
 \#简介  : <br>
 \##<br>
 \#############################################<br>
-<br>
+
 测试二：<br>
 zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my.py<br>
 \#!/usr/bin/python <br>
-<br>
+
 \#############################################<br>
 \##<br>
 \#文件名: my.py<br>
@@ -55,11 +55,11 @@ zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my.py<br>
 \#简介  : <br>
 \##<br>
 \#############################################<br>
-<br>
+
 测试三：<br>
 zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my_python.py -d "this is a test"<br>
 \#!/usr/bin/python <br>
-<br>
+
 \#############################################<br>
 \##<br>
 \#文件名: my_python.py<br>
@@ -68,4 +68,4 @@ zane@zane:~/github/my-bash-shell/my_vim$ ./my_vim.sh my_python.py -d "this is a 
 \#简介  : this is a test<br>
 \##<br>
 \#############################################<br>
-<br>
+

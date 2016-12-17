@@ -1,6 +1,6 @@
 ##This is analysis_dir.readme
 
-背景需求
+####背景需求<br>
 
 目录下面有N个文件和目录，且都是存放的是脚本文件；<br>
 那么分析这些脚本的类型种类，总代码长度，平均代码长度等<br>
@@ -8,7 +8,7 @@
 
 <br>
 <br>
-功能介绍
+####功能介绍
 
 1.找出代码行数大于n行的脚本文件，并复制到指定目录<br>
   默认n=100;      指定目录：~/morelines;<br>
@@ -23,12 +23,12 @@
 	注释平均占比<br>
 
 
-使用介绍<br>
+####使用介绍<br>
 
 1.analysis_dir.sh {source_dir_name} [dir] [n]<br>
 
 
-测试<br>
+####测试<br>
 
 使用script目录作为例子<br>
 
@@ -50,11 +50,11 @@ aiapple@ubuntu:~/git/my-bash-shell/analysis_dir$ ./analysis_dir.sh script/ copy 
 aiapple@ubuntu:~/git/my-bash-shell/analysis_dir$ ls -l copy/   <br>
 ls: 初始化月份字符串出错<br>
 总用量 44 <br>
--rwxrwxr-x 1 aiapple aiapple 6792 10�� 28 13:40 check_cpu.sh     <br>
--rwxrwxr-x 1 aiapple aiapple 6792 10�� 28 13:40 check_cpu.sh.bak <br>
--rwxrwxr-x 1 aiapple aiapple 6643 10�� 28 13:40 check_mem.pl     <br>
--rwxrwxr-x 1 aiapple aiapple 4435 10�� 28 13:40 check_mem.sh     <br>
--rwxrwxr-x 1 aiapple aiapple 5840 10�� 28 13:40 check_mem.sh.bak <br>
--rwxrwxr-x 1 aiapple aiapple 3511 10�� 28 13:40 rc.functions     <br>
+-rwxrwxr-x 1 aiapple aiapple 6792 10-28 13:40 check_cpu.sh     <br>
+-rwxrwxr-x 1 aiapple aiapple 6792 10-28 13:40 check_cpu.sh.bak <br>
+-rwxrwxr-x 1 aiapple aiapple 6643 10-28 13:40 check_mem.pl     <br>
+-rwxrwxr-x 1 aiapple aiapple 4435 10-28 13:40 check_mem.sh     <br>
+-rwxrwxr-x 1 aiapple aiapple 5840 10-28 13:40 check_mem.sh.bak <br>
+-rwxrwxr-x 1 aiapple aiapple 3511 10-28 13:40 rc.functions     <br>
 
 

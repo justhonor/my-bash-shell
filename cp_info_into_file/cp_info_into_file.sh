@@ -31,8 +31,8 @@ else
 		touch $my_readmd
 		info_bk=`mkdir info_bk`
 		
-		echo -e "# my-bash-shell"        		          >> $my_readmd
-		echo -e "bahs shell 脚本使用记录"         	    	  >> $my_readmd
+		echo -e "# My-bash-shell"        		          >> $my_readmd
+		echo -e "bash shell 脚本使用记录"         	    	  >> $my_readmd
 		echo -e ""			         		  >> $my_readmd
 		echo -e "简介"                 				  >> $my_readmd
 		echo -e "每个脚本都放在单独目录中，清晰可见" 		  >> $my_readmd
