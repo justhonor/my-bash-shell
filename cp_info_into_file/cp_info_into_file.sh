@@ -30,6 +30,17 @@ else
 		
 		touch $my_readmd
 		info_bk=`mkdir info_bk`
+		
+		echo -e "# my-bash-shell"        		          >> $my_readmd
+		echo -e "bahs shell 脚本使用记录"         	    	  >> $my_readmd
+		echo -e ""			         		  >> $my_readmd
+		echo -e "简介"                 				  >> $my_readmd
+		echo -e "每个脚本都放在单独目录中，清晰可见" 		  >> $my_readmd
+		echo -e "以实际应用场景为基础的脚本代码" 		  >> $my_readmd
+		echo -e "" 		  				  >> $my_readmd
+		echo -e "包含背景需求，功能介绍，使用介绍 ---> xxx.readme" 		   >> $my_readmd
+		echo -e "代码实现                         ---> xxx.sh    "                 >> $my_readmd
+		echo -e ""			         		                   >> $my_readmd
 	fi
 		
 fi
