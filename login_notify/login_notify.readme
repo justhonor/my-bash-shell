@@ -2,44 +2,52 @@
 
 ####背景需求 <br>
 
-有人到你家里来你还不知道。<br>
+有人到你家里来你还不知道。 <br>
 家里东西被搬光,你却不知道。<br>
-还是装个云摄像头吧。<br>
+还是装个云摄像头吧。       <br>
 
 ####功能介绍 <br>
 
-1.有人登陆系统则发邮件<br>
-	邮件内容：用户名,终端,时间,主机名<br>
-		  现在操作命令的历史文件<br>
-		  <br>
-2.有人退出系统则发邮件<br>
-	邮件内容：用户名,终端,时间,主机名<br>
-		  现在操作命令的历史文件<br>
-		  录制其操作的脚本文件<br>
-
-
-内容包括:<br>
-	录制其操作的脚本文件<br>
-	操作命令的历史文件<br>
-	登陆log文件:<br>
-		登陆时登陆中登陆后<br>
+1.有人登陆系统则发邮件			 <br>
+	邮件内容：用户名,时间,IP         <br>
+		  			 <br>
 
 分析:<br>
 
-通过/var/log/auth.log监控用户登陆行为<br>
-如果有用户登陆/退出则给root发邮件<br>
-以登陆时间和用户来控制不重复发送<br>
+通过who命令                          <br>
+如果有用户登陆则给root发邮件         <br>
+以登陆时间,用户,IP来控制不重复发送   <br>
 
 每20秒统计一下信息<br>
 可以使用cron任务调度<br>
 
-上一次用户登陆状态<br>
-与这此用户登陆状态<br>
-
 root在/etc/profile 中添加script，并保存在/root目录中<br>
-等到用户退出时将，录制文件，发送邮件。<br>
+
 
 ####使用介绍 <br>
+root@ubuntu:/home/aiapple/git/my-bash-shell/login_notify# ./login_notify.sh 
 
 ####测试 <br>
+
+root@ubuntu:/home/aiapple/git/my-bash-shell/login_notify# ./login_notify.sh 
+有新登陆用户
+发送邮件
+root@ubuntu:/home/aiapple/git/my-bash-shell/login_notify# mail
+"/var/mail/root": 1 message 1 new
+>N   1 root                 14/478   someone login the server
+? 1
+Return-Path: <root@ubuntu>
+X-Original-To: root@ubuntu
+Delivered-To: root@ubuntu
+Received: by ubuntu (Postfix, from userid 0)
+	id 3E97DCBE7; Sat, 17 Dec 2016 13:55:02 -0500 (EST)
+Subject: someone login the server
+To: <root@ubuntu>
+X-Mailer: mail (GNU Mailutils 2.2)
+Message-Id: <20161217185502.3E97DCBE7@ubuntu>
+Date: Sat, 17 Dec 2016 13:55:02 -0500 (EST)
+From: root@ubuntu (root)
+
+Warning someone have login your server!!!
+ 10  User:aiapple Date:2016-12-17 Time:13:54 IP:(:0.0)
 
