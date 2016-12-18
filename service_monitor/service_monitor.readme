@@ -8,13 +8,19 @@
 ####功能介绍 <br>
 
 	开机自启动<br>
-	监控httpd服务默认端口80<br>
+	监控mysqld服务,端口3306<br>
 	服务不在则重启服务并发送告警<br>
 
 
 
 
 ####使用介绍 <br>
+aiapple@ubuntu:~/git/my-bash-shell/service_monitor$ ./service_monitor.sh mysqld 3306
 
 ####测试 <br>
+
+aiapple@ubuntu:~/git/my-bash-shell/service_monitor$ ./service_monitor.sh mysqld 3306
+server have gone!!! rebooting....
+161218 05:23:54 mysqld_safe Logging to '/home/aiapple/mysqldata/node1/aiapple.log'.
+161218 05:23:54 mysqld_safe Starting mysqld daemon with databases from /home/aiapple/mysqldata/node1
 
