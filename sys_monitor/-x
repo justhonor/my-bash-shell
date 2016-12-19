@@ -1,0 +1,35 @@
+Mutt 1.5.21 (2010-09-15)
+usage: mutt [<options>] [-z] [-f <file> | -yZ]
+       mutt [<options>] [-x] [-Hi <file>] [-s <subj>] [-bc <addr>] [-a <file> [...] --] <addr> [...]
+       mutt [<options>] [-x] [-s <subj>] [-bc <addr>] [-a <file> [...] --] <addr> [...] < message
+       mutt [<options>] -p
+       mutt [<options>] -A <alias> [...]
+       mutt [<options>] -Q <query> [...]
+       mutt [<options>] -D
+       mutt -v[v]
+
+options:
+  -A <alias>	expand the given alias
+  -a <file> [...] --	attach file(s) to the message
+		the list of files must be terminated with the "--" sequence
+  -b <address>	specify a blind carbon-copy (BCC) address
+  -c <address>	specify a carbon-copy (CC) address
+  -D		print the value of all variables to stdout
+  -d <级别>	将调试输出记录到 ~/.muttdebug0
+  -e <命令>	指定一个初始化后要被执行的命令
+  -f <文件>	指定要阅读那一个信箱
+  -F <文件>	指定一个替代的 muttrc 文件
+  -H <文件>	指定一个模板文件以读取标题和正文来源
+  -i <文件>	指定一个 Mutt 需要包含在正文中的文件
+  -m <类型>	指定一个预设的信箱类型
+  -n		使 Mutt 不去读取系统的 Muttrc
+  -p		叫回一个延后寄送的信件
+  -Q <变量>	查询一个配置变量
+  -R		以只读模式打开信箱
+  -s <主题>	指定一个标题 (如果有空白的话必须被包括在引号中)
+  -v		显示版本和编译时的定义
+  -x		模拟 mailx 寄送模式
+  -y		选择一个被指定在您`mailboxes'清单中的信箱
+  -z		如果在信箱中没有信件的话，立即退出
+  -Z		打开第一个附有新信件的资料夹，如果没有的话立即离开
+  -h		本帮助消息
