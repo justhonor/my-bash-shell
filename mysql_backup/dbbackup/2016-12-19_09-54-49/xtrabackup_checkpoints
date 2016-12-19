@@ -1,0 +1,5 @@
+backup_type = incremental
+from_lsn = 1626203
+to_lsn = 1636445
+last_lsn = 1636445
+compact = 0

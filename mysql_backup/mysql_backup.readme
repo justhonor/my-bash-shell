@@ -19,6 +19,49 @@
 		全量,并行,限流,压缩
 
 使用介绍 
+	aiapple@ubuntu:~/git/my-bash-shell/mysql_backup$ ./mysql_backup.sh -h
+	This is mysql backup using innobackupex
+	
+	Usage: mysql_backup.sh [options]
+  	e.g. mysql_backup.sh -a -c 2 -p 4 -t 10 
+  	e.g. mysql_backup.sh -i dbbackup/2016-08-20_06-16-26 -c 2 -p 4 -t 10 
+	
+	Options:
+		 --help                   | -h       print help
+	 	--verbose                | -v       be verbose (debug mode)
+	 	--all                    | -a       using full backup
+	 	--incremental  [dir]     | -i [dir] using incremental backup
+	 	--compress     [int]     | -c [int] using compress function
+	 	--parallel     [int]     | -p [int] using parallel function
+	 	--throttle     [int]     | -t [int] using throttle function
+
 
 测试 
+	
+	aiapple@ubuntu:~/git/my-bash-shell/mysql_backup$ ./mysql_backup.sh -a -c 2 -p 4 -t 10
+	options:
+ 	--user=root --password=000000 --defaults-file=/home/aiapple/mysqldata/my.cnf --parallel=4 --throttle=10 --compress --compress-thread 2 
+	
+	InnoDB Backup Utility v1.5.1-xtrabackup; Copyright 2003, 2009 Innobase Oy
+	and Percona LLC and/or its affiliates 2009-2013.  All Rights Reserved.
+	
+	This software is published under
+	the GNU GENERAL PUBLIC LICENSE Version 2, June 1991.
+	
+	Get the latest version of Percona XtraBackup, documentation, and help resources:
+	http://www.percona.com/xb/p
+	
+	161219 09:47:56  innobackupex-1.5.1: Connecting to MySQL server with DSN 'dbi:mysql:;mysql_read_default_file=/home/aiapple/mysqldata/my.cnf;mysql_read_default_group=xtrabackup' as 'root'  (using password: YES).
+	161219 09:47:56  innobackupex-1.5.1: Connected to MySQL server
+	161219 09:47:56  innobackupex-1.5.1: Executing a version check against the server...
+	161219 09:48:04  innobackupex-1.5.1: Done.
+	IMPORTANT: Please check that the backup run completes successfully.
+        	   At the end of a successful backup run innobackupex-1.5.1
+	............
+	............
+	............
+	innobackupex-1.5.1: Backup created in directory '/home/aiapple/git/my-bash-shell/mysql_backup/dbbackup/2016-12-19_09-48-04'
+	innobackupex-1.5.1: MySQL binlog position: filename 'mysql-bin.000013', position 871
+	161219 09:48:08  innobackupex-1.5.1: Connection to database server closed
+	161219 09:48:08  innobackupex-1.5.1: completed OK!
 
