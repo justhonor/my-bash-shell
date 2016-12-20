@@ -2,14 +2,38 @@
 
 背景需求 
 
-	磁盘控制总是不够用的，
+	磁盘空间总是不够用的，
 	需要找到那些非常大又不用的文件
 	
 
 
 功能介绍 
+	
+	查找指定目录下大小TOP N 的文件
+	选项
+		a  删除所有
+		d  filename 删除指定文件
+		b  filename directory 备份指定文件到指定目录
+	指定的文件名可以是basename;
 
 使用介绍 
 
+        aiapple@ubuntu:~/git/my-bash-shell/find_max10file$ ./find_max10file.sh 
 测试 
-
+        aiapple@ubuntu:~/git/my-bash-shell/find_max10file$ ./find_max10file.sh 
+        The top 3 files are coming!
+        4	/home/aiapple/git/my-bash-shell/find_max10file/cc/info_bk/sys_monitor.readme
+        4	/home/aiapple/git/my-bash-shell/find_max10file/cc/info_bk/service_monitor.readme
+        4	/home/aiapple/git/my-bash-shell/find_max10file/cc/info_bk/my_vim.readme
+        
+        这是操作选项:
+                       a          删除查询文件
+                       d filename 删除指定文件
+                       b filename directory 备份指定文件到指定目录
+        直接回车，结束脚本.....
+        
+        d my_vim.readme
+        正在删除 my_vim.readme
+        .........
+        .....
+        删除成功

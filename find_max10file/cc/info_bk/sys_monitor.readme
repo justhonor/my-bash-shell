@@ -1,0 +1,30 @@
+##This is sys_monitor.readme <br>
+
+####背景需求 <br>
+
+监控服务器状态及时预警是运维职责所在。<br>
+
+####功能介绍 <br>
+
+监控服务器关键状态指标,发送邮件<br>
+指标:<br>
+	CPU<br>
+	MEMORY<br>
+	SWAP<br>
+	ROOT/USR/VAR DISK SPACE <br>
+
+邮件:<br>
+	发送给本机邮件<br>
+	<br>
+周期报警:<br>
+	如若报警为解除,则建立周期任务,给刚上线的用户直接弹消息<br>
+
+####使用介绍 <br>
+
+aiapple@ubuntu:~/git/my-bash-shell/sys_monitor$ ./sys_monitor.sh <br>
+The file is exsit~<br>
+Delete:d  Flush:f	<br>
+Adding a new report in this file........<br>
+
+####测试 <br>
+

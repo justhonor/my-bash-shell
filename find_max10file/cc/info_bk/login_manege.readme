@@ -1,0 +1,77 @@
+##This is login_manege.readme  <br>
+
+####背景需求  <br>
+
+管理服务器的时候，难免要登陆到各机器去察看系统情况. <br>
+每次都需要IP 密码的输入 太重复.尤其是在短时间内， <br>
+退出登陆后，又要再此登陆，不断在输入 同样的IP，密码. <br>
+
+因此一个自动化登陆管理脚本是很有效果 <br>
+
+####功能介绍  <br>
+
+
+1.使用别名直接登陆: <br>
+	基于SSH <br>
+	判断网路是否通 <br>
+
+2.管理登陆帐号 <br>
+	添加:判断是否存在,判断网络是否通 <br>
+	删除 <br>
+	察看 <br>
+	更改别名:先删再加，只是IP不删 <br>
+
+3.察看使用帮助 <br>
+
+#####问题： <br>
+1.密码此时是明文存在server.cnf文件中,显然不合适 <br>
+
+2.ssh登陆尚不稳定 <br>
+
+3.若某别名的前缀，与另一个别名一样，则无法正常登陆 <br>
+如： <br>
+aliyun root shhsdhf 12.1.1.7 <br>
+ali    root dawang  139.196.58.188 <br>
+此时登陆aliyun,是可以的。但ali则会出错 <br>
+
+4.登陆超时没有自动退出。 <br>
+
+####使用介绍  <br>
+
+登陆  <br>
+login_manage.sh -i  alias_name <br>
+
+添加 <br>
+login_manage.sh -a alias_name user passwd ip  <br>
+
+删除 <br>
+login_manage.sh -d [ip|alias_name] <br>
+
+更改别名 <br>
+login_manage.sh -c source_alias_name destiant_alias_name <br>
+
+察看 <br>
+login_manage.sh -l <br>
+
+使用帮助 <br>
+login_manage.sh -h <br>
+
+####测试  <br>
+aiapple@ubuntu:~/git/my-bash-shell/login_manage$ ./login_manege.sh -i ali <br>
+准备登陆ali,IP:139.196.58.188 <br>
+网络畅通。。。。。 <br>
+执行登陆程序 <br>
+spawn ssh root@139.196.58.188 <br>
+root@139.196.58.188's password:  <br>
+Welcome to Ubuntu 12.04.5 LTS (GNU/Linux 3.2.0-67-generic-pae i686) <br>
+
+Documentation:  https://help.ubuntu.com/ <br>
+New release '14.04.1 LTS' available. <br>
+Run 'do-release-upgrade' to upgrade to it. <br>
+
+Welcome to aliyun Elastic Compute Service! <br>
+
+Last login: Sun Nov  6 19:10:56 2016 from 114.219.76.109 <br>
+root@iZ11xkhdslnZ:~#  <br>
+
+

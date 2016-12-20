@@ -1,0 +1,35 @@
+##This is cp_info_into_file.readme <br>
+
+####背景需求 <br>
+
+将指定类型文本的信息提取并加到指定文本中<br>
+
+例如：<br>
+有n个脚本readme文件，且在不同目录下.如/analysis_dir.readme且这些文件中都有背景信息,功能信息；<br>
+此时要将这些背景信息和各自脚本名如analysis_dir.sh，都自动加到如README.md当中；<br>
+
+####功能介绍 <br>
+
+1.遍历my-bash-shell目录找到xxx.readme文件<br>
+
+2.将xxx.readme内容添加到README.md中去<br>
+
+3.自动比较各文件是否更新如已经更新，则替换为最新的内容;<br>
+
+#####可扩展功能:<br>
+1.判断原文件是否在,如果原文件不在,则认为整个工程已删除,则也删除README.md中对应内容;<br>
+
+
+####使用介绍 <br>
+
+./cp_info_into_file.sh <br>
+
+
+####测试 <br>
+
+aiapple@ubuntu:~/git/my-bash-shell/cp_info_into_file$ ./cp_info_into_file.sh <br>
+目录已存在删除重建:d,更新:p<br>
+
+my_vim.readme 已经更新内容<br>
+
+
