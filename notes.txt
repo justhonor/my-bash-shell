@@ -1,0 +1,34 @@
+#脚本知识点总结
+#
+
+seq
+	常用在脚本参数循环中
+	for I in `seq 0 #$`;done
+	使用于：adminusers3.sh
+
+id user1
+	判断user1用户是否存在
+	使用于：adminusers3.sh
+	
+判断字符参数是否为数字
+        使用grep判断
+        if grep '^[[:digit:]]' <<<"$1" &>/dev/null && ;then
+
+shift
+	多用在处理输入参数
+	while [ "$#" -gt 0 ]; do
+        case "$1" in
+         '--verbose'|'-v')
+           DEBUG=1
+           shift 1
+           ;;
+         '--all'|'-a')
+           use_all=1
+           shift 1
+           ;;
+         '--increment'|'-i')
+           is_dir $2
+           use_inc=1
+           inc_dir="$2"
+           shift 2
+          
