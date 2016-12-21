@@ -32,3 +32,13 @@ shift
            inc_dir="$2"
            shift 2
           
+  
+  
+read 判断输入回车方式
+ 	 read -t 5 -s -p "请输入:"op 
+  	 if  [ -z $op ];then
+
+     判断输入tab按键
+	 if [ $op == $'\t' ];then
+
+hava no change!!!
