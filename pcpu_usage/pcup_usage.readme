@@ -1,0 +1,23 @@
+#this is pcup_usage.readme 
+
+背景需求 
+	
+	掌握机器资源的使用情况
+	才能更好的管理机器
+
+功能介绍 
+	
+	列出1小时内占用CPU最多的5个进程。
+	注意脚本需要预热至少1小时	
+
+使用介绍
+ 
+	zane@zane:~/github/my-bash-shell/pcpu_usage$ ./pcup_usage.sh
+测试 
+
+	zane@zane:~/github/my-bash-shell/pcpu_usage$ ./pcup_usage.sh 
+	Xorg                 24
+	gnome-terminal       18
+	pulseaudio           12
+	ibus-daemon          12
+	VBoxClient           6

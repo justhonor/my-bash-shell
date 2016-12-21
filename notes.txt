@@ -32,3 +32,23 @@ shift
            inc_dir="$2"
            shift 2
           
+tail -n +2
+	从第2行开始显示；
+	zane@zane:~/github/my-bash-shell/pcpu_usage$ cat test.t | tail -n +1
+        1 COMMAND         %CPU
+        2 init             1.0
+        3 kthreadd         2.0
+        4 ksoftirqd/0      3.0
+        zane@zane:~/github/my-bash-shell/pcpu_usage$ cat test.t | tail -n +2
+        2 init             1.0
+        3 kthreadd         2.0
+        4 ksoftirqd/0      3.0
+        
+	used in :pcpu_usage.sh
+
+sort -nrk 3
+	n  : 用字符串数字进行排序
+	r  : 逆序排序
+	k 3: 指定对第3列进行排序
+
+	used in :pcpu_usage.sh
