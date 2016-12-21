@@ -83,7 +83,7 @@ elif [ $lastname == 'sh' ] ;then
 	echo -e "#!/bin/bash \n" >> $1
 	IsShell
 elif [ $lastname == 'readme' ] ;then
-	echo -e "#this is $filename \n" >> $1
+	echo -e "#This is $filename \n" >> $1
 	IsReadMe
 else
 	echo "请输入正确文件名:xxx.sh xxx.py xxx.readme"

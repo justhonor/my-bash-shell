@@ -43,14 +43,16 @@ tail -n +2
         2 init             1.0
         3 kthreadd         2.0
         4 ksoftirqd/0      3.0
-        
-	used in :pcpu_usage.sh
+	使用于: pcpu_usage.sh
 
 sort -nrk 3
 	n  : 用字符串数字进行排序
 	r  : 逆序排序
 	k 3: 指定对第3列进行排序
 
-	used in :pcpu_usage.sh
+	使用于: pcpu_usage.sh
 
-have no change????
+/etc/passwd 中bin/bash 有多少？
+	aiapple@ubuntu:~$ awk -F: '{shell[$NF]++} END {for (a in shell) {print a,shell[a]}}' /etc/passwd
+	
+	使用于: intrder_detect.sh
