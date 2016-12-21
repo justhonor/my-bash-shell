@@ -32,8 +32,6 @@ shift
            inc_dir="$2"
            shift 2
           
-  
-  
 read 判断输入回车方式
  	 read -t 5 -s -p "请输入:"op 
   	 if  [ -z $op ];then
@@ -41,4 +39,56 @@ read 判断输入回车方式
      判断输入tab按键
 	 if [ $op == $'\t' ];then
 
-hava no change!!!
+
+read 从文件按行读取
+	while read user;do
+		echo $user
+	done < users.t
+
+tail -n +2
+	从第2行开始显示；
+	zane@zane:~/github/my-bash-shell/pcpu_usage$ cat test.t | tail -n +1
+        1 COMMAND         %CPU
+        2 init             1.0
+        3 kthreadd         2.0
+        4 ksoftirqd/0      3.0
+        zane@zane:~/github/my-bash-shell/pcpu_usage$ cat test.t | tail -n +2
+        2 init             1.0
+        3 kthreadd         2.0
+        4 ksoftirqd/0      3.0
+	使用于: pcpu_usage.sh
+
+head -n -2
+	最后两行不显示
+
+sort -nrk 3
+	n  : 用字符串数字进行排序
+	r  : 逆序排序
+	k 3: 指定对第3列进行排序
+	使用于: pcpu_usage.sh
+
+/etc/passwd 中bin/bash 有多少？
+	aiapple@ubuntu:~$ awk -F: '{shell[$NF]++} END {for (a in shell) {print a,shell[a]}}' /etc/passwd
+	使用于: intrder_detect.sh
+
+
+tr -d 删除字符串中指定字符
+   -s 替换指定字符串中字符
+      aiapple@ubuntu:~/git/my-bash-shell/active_users$ cat t1
+      (00:00)
+      (00:00)
+      aiapple@ubuntu:~/git/my-bash-shell/active_users$ cat t1 | tr -d  '()' 
+      00:00
+      00:00
+      aiapple@ubuntu:~/git/my-bash-shell/active_users$ cat t1 | tr -d  '()' | tr -s ':' "-"
+      00-00
+      00-00	
+
+插入RANK值
+	aiapple@ubuntu:~/git/my-bash-shell/active_users$ cat TIME 
+	00:00
+	00:00
+	aiapple@ubuntu:~/git/my-bash-shell/active_users$ cat TIME | awk '{print NR " " $0}'
+	1 00:00
+	2 00:00
+

@@ -1,0 +1,25 @@
+#This is active_users.readme 
+
+背景需求 
+
+	web站点发展离不开数据的统计分析
+	而用户的使用习惯是最重要的数据
+
+功能介绍 
+		
+	分析/var/log/wtmp日志文件
+	统计用户登陆信息生成报告：
+		等级  用户名  首次登陆时间  上次登陆时间  登陆次数 登陆总时间
+
+	去除still,crash,down等状态信息
+	去除系统用户root,reboot等
+
+使用介绍 
+
+	aiapple@ubuntu:~/git/my-bash-shell/active_users$ bash active_users.sh
+测试 
+
+	aiapple@ubuntu:~/git/my-bash-shell/active_users$ bash active_users.sh 
+	Rand User     StartTime       LastTime        Mins 
+	1    aiapple  Dec 17 11:28    Dec 21 07:26    1514 
+	2    user2    Dec 17 11:38    Dec 17 11:43    1  

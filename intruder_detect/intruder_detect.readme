@@ -1,0 +1,32 @@
+#This is intruder_detect.readme 
+
+背景需求 
+	
+	服务器安全是业务正常运行的保障
+
+功能介绍 
+
+	检测试图登陆系统TOP_N多的IP,
+	并且期间登陆过程全部失败。
+	
+	生成报告:
+		 试图登陆的账户
+		 试图登陆的次数
+		 攻击者IP地址
+		 攻击者主机名
+		 进行登陆的时间段
+		
+		 注意:这里只针对暴力破解，即对系统原有账户进行检测.
+使用介绍 
+
+        zane@zane:~/github/my-bash-shell/intruder_detect$ ./intruder_detect.sh auth.log 
+
+测试 
+
+        zane@zane:~/github/my-bash-shell/intruder_detect$ ./intruder_detect.sh auth.log 
+        lines:1194
+        Sr#  |USERS     |TIMES     |IP address      |Host name    |Time range
+        1    |zane      |742       |222.186.21.73   |3(NXDOMAIN)  |Mar 13 08:48:31 -->Mar 20 02:09:23
+        2    |zane      |253       |222.186.129.245 |3(NXDOMAIN)  |Mar 13 08:48:31 -->Mar 20 02:09:23
+        2    |root      |253       |222.186.129.245 |3(NXDOMAIN)  |Mar 13 08:48:31 -->Mar 20 02:09:23
+
