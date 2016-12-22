@@ -92,3 +92,14 @@ tr -d 删除字符串中指定字符
 	1 00:00
 	2 00:00
 
+EOF
+	Shell中通常将EOF与 << 结合使用,表示后续的输入作为子命令或子Shell的输入,         直到遇到EOF为止，再返回到主调Shell。
+	mysql -uroot -p123456 <<EOF
+	use test;
+EOF
+	注意:第二个EOF需要顶格写
+
+<<COMMENTBLOCK
+.............
+COMMENTBLOCK
+	整段代码注释
