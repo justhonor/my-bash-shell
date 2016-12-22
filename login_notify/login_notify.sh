@@ -34,22 +34,22 @@ done
 #echo 24:${user[24]}
 #echo "元素:${user[*]}"
 #####################################################
-
-#NR 控制处理的行数
-#################################服务器环境######
-#a=`who`
-#NF=`echo $a | awk '{print NF}'`
-#let NR=NF/5
-#echo -e "NR:$NR"
-#user_number=1
-#取出当前用户信息
-#for ((i=0;i<$NF;i=$i+1));do
-#	let j=$i+1
-#	user[$i]=`echo $a | awk '{print $'$j'}'`
-#	#echo ${user[$i]}
-#done
-#################################################
-
+<<COMMENTBLOCK
+NR 控制处理的行数
+################################服务器环境######
+a=`who`
+NF=`echo $a | awk '{print NF}'`
+let NR=NF/5
+echo -e "NR:$NR"
+user_number=1
+取出当前用户信息
+for ((i=0;i<$NF;i=$i+1));do
+	let j=$i+1
+	user[$i]=`echo $a | awk '{print $'$j'}'`
+	#echo ${user[$i]}
+done
+################################################
+COMMENTBLOCK
 USERS=$NR
 
 #记录现在的登陆信息

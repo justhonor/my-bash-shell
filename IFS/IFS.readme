@@ -1,0 +1,28 @@
+#This is IFS.readme 
+
+IFS     分割字符串,以数组形式存放
+
+        类似mysql 当中更改结束符: delimiter //
+                  在用之后一般还原: delimiter ;
+
+        data="name,sex,location,numbers"
+        oldIFS=$IFS
+        IFS=','
+        for item in $data;
+        do
+             echo item:$item
+        done
+        IFS=$oldIFS
+
+        IFS将字符串的分割符定义成‘,’这样data原本一个字符串
+        就变成字符串数组有:name,sex,location,numbers
+        在用完之后又还原成默认值
+
+背景需求 
+
+功能介绍 
+
+使用介绍 
+
+测试 
+

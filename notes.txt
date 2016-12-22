@@ -1,6 +1,35 @@
 #脚本知识点总结
 #
 
+find -exec grep
+	在目录中找到含有“shift”字符的文件
+	aiapple@ubuntu:~/git/my-bash-shell$ find .  -exec grep "shift" {} + | cut -d " "  -f1 |uniq
+	
+	注意:grep,大括号后面 + --> \; 两者有一定区别
+
+
+
+IFS     分割字符串,以数组形式存放
+	
+	类似mysql 当中更改结束符: delimiter // 
+		  在用之后一般还原: delimiter ;
+
+	data="name,sex,location,numbers"
+	oldIFS=$IFS
+	IFS=','
+	for item in $data;
+	do
+   	     echo item:$item
+	done
+	IFS=$oldIFS
+
+	IFS将字符串的分割符定义成‘,’这样data原本一个字符串
+	就变成字符串数组有:name,sex,location,numbers
+	在用完之后又还原成默认值
+	使用于：IFS.sh
+
+	早知道这个命令得少写多少行！！！
+
 seq
 	常用在脚本参数循环中
 	for I in `seq 0 #$`;done
@@ -13,6 +42,16 @@ id user1
 判断字符参数是否为数字
         使用grep判断
         if grep '^[[:digit:]]' <<<"$1" &>/dev/null && ;then
+
+
+bash    -x  调试脚本
+
+	    set -x
+		需调试的部分脚本
+	    set +x  
+
+	    set -v:当命令进行读取时显示输入
+	    set +v:禁止打印输入	    
 
 shift
 	多用在处理输入参数
@@ -38,12 +77,18 @@ read 判断输入回车方式
 
      判断输入tab按键
 	 if [ $op == $'\t' ];then
+     
+     	 -n:指定输入字符数
+     	 -s:无回显
+     	 -p:提示
+     	 -t:等待时间
 
 
 read 从文件按行读取
 	while read user;do
 		echo $user
 	done < users.t
+        使用于:active_users.sh
 
 tail -n +2
 	从第2行开始显示；
@@ -56,10 +101,10 @@ tail -n +2
         2 init             1.0
         3 kthreadd         2.0
         4 ksoftirqd/0      3.0
+	head -n -2
+		最后两行不显示
 	使用于: pcpu_usage.sh
 
-head -n -2
-	最后两行不显示
 
 sort -nrk 3
 	n  : 用字符串数字进行排序
@@ -83,6 +128,7 @@ tr -d 删除字符串中指定字符
       aiapple@ubuntu:~/git/my-bash-shell/active_users$ cat t1 | tr -d  '()' | tr -s ':' "-"
       00-00
       00-00	
+      使用于:active_users.sh
 
 插入RANK值
 	aiapple@ubuntu:~/git/my-bash-shell/active_users$ cat TIME 
@@ -91,6 +137,7 @@ tr -d 删除字符串中指定字符
 	aiapple@ubuntu:~/git/my-bash-shell/active_users$ cat TIME | awk '{print NR " " $0}'
 	1 00:00
 	2 00:00
+        使用于:active_users.sh
 
 EOF
 	Shell中通常将EOF与 << 结合使用,表示后续的输入作为子命令或子Shell的输入,         直到遇到EOF为止，再返回到主调Shell。
@@ -98,8 +145,10 @@ EOF
 	use test;
 EOF
 	注意:第二个EOF需要顶格写
+	使用于: connect_mysql.sh
 
 <<COMMENTBLOCK
 .............
 COMMENTBLOCK
 	整段代码注释
+	使用于: login_notify.sh
