@@ -1,0 +1,16 @@
+#This is repl_monitor.readme 
+
+背景需求 
+
+	mysql自建主从复制,监控主从复制的状态
+
+功能介绍 
+
+	监控从库三个状态:
+	    Slave_IO_Running
+            Slave_SQL_Running
+	    SQL_Delay
+使用介绍 
+
+测试 
+
