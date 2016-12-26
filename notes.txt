@@ -152,3 +152,25 @@ EOF
 COMMENTBLOCK
 	整段代码注释
 	使用于: login_notify.sh
+
+
+split 
+	-b 	     指定每个分割文件的大小
+	-d 	     分割文件以数字结尾
+	-a 4         数字结尾的长度
+        split-file   指定的分割文件的文指定的分割文件的文件名名
+	
+	zane@zane-V:~/auth$ ls -hl
+	总用量 2.7M
+	-rw-rw-r-- 1 zane zane 2.7M 12月 26 13:38 auth.log
+	zane@zane-V:~/auth$ split -b 500k auth.log -d -a 4 split-file
+	zane@zane-V:~/auth$ ls -lh
+	总用量 5.3M
+	-rw-rw-r-- 1 zane zane 2.7M 12月 26 13:38 auth.log
+	-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0000
+	-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0001
+-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0002
+-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0003
+-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0004
+-rw-rw-r-- 1 zane zane 173K 12月 26 14:22 split-file0005
+
