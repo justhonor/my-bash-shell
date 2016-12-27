@@ -51,5 +51,5 @@ ls -lS | awk 'BEGIN {
 }'
 
 
-ls -lS | awk 'BEGIN{getline;} {system("md5sum "$9)}' >duplicate_files
+#ls -lS | awk 'BEGIN{getline;} {system("md5sum "$9)}' >duplicate_files
 

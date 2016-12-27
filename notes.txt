@@ -169,8 +169,17 @@ split
 	-rw-rw-r-- 1 zane zane 2.7M 12月 26 13:38 auth.log
 	-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0000
 	-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0001
--rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0002
--rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0003
--rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0004
--rw-rw-r-- 1 zane zane 173K 12月 26 14:22 split-file0005
+	-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0002
+	-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0003
+	-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0004
+	-rw-rw-r-- 1 zane zane 173K 12月 26 14:22 split-file0005
+
+& 并行执行for
+	for ip in 192.168.0.{1..255}
+	do
+	    (
+		ping $ip -c2 &>/dev/null
+
+	    )&
+	done
 
