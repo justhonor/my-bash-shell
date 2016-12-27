@@ -1,6 +1,22 @@
 #脚本知识点总结
 #
 
+awk  
+	getline
+		ls -lS | awk 'BEGIN{getline;}{"md5sum " $9 | getline;print $1 " " $2}'
+		BEGIN中getline,先读取一行,然后再到awk按行读取。并按行的某字段求md5.
+		具体getline使用参照evernote.
+
+	$0
+		aiapple@ubuntu:~/git/my-bash-shell/active_users$ cat TIME | awk '{print NR " " $0}'
+        	1 00:00
+        	2 00:00
+		在打印前面增加行数。
+
+	shell[$NF]++
+		aiapple@ubuntu:~$ awk -F: '{shell[$NF]++} END {for (a in shell) {print a,shell[a]}}' /etc/passwd
+		a 为每一不同的某列；shell[a] 为这一不同列的个数；
+
 find -exec grep
 	在目录中找到含有“shift”字符的文件
 	aiapple@ubuntu:~/git/my-bash-shell$ find .  -exec grep "shift" {} + | cut -d " "  -f1 |uniq
@@ -27,6 +43,7 @@ IFS     分割字符串,以数组形式存放
 	就变成字符串数组有:name,sex,location,numbers
 	在用完之后又还原成默认值
 	使用于：IFS.sh
+
 
 	早知道这个命令得少写多少行！！！
 
@@ -89,6 +106,11 @@ read 从文件按行读取
 		echo $user
 	done < users.t
         使用于:active_users.sh
+
+	while read user;do
+		echo $user
+	done< <(cat users.t)
+        使用于:remove_duplicats.sh
 
 tail -n +2
 	从第2行开始显示；
@@ -153,7 +175,6 @@ COMMENTBLOCK
 	整段代码注释
 	使用于: login_notify.sh
 
-
 split 
 	-b 	     指定每个分割文件的大小
 	-d 	     分割文件以数字结尾
@@ -169,8 +190,8 @@ split
 	-rw-rw-r-- 1 zane zane 2.7M 12月 26 13:38 auth.log
 	-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0000
 	-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0001
--rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0002
--rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0003
--rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0004
--rw-rw-r-- 1 zane zane 173K 12月 26 14:22 split-file0005
+	-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0002
+	-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0003
+	-rw-rw-r-- 1 zane zane 500K 12月 26 14:22 split-file0004
+	-rw-rw-r-- 1 zane zane 173K 12月 26 14:22 split-file0005
 

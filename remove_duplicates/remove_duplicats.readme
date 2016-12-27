@@ -13,5 +13,14 @@
 
 使用介绍 
 
+	aiapple@ubuntu:~/git/my-bash-shell/remove_duplicates$ ls
+	
 测试 
+	aiapple@ubuntu:~/git/my-bash-shell/remove_duplicates$ ls
+	file0000     file0001     remove_duplicats.readme  split-file0000     split-file0001  split-file0003  split-file0005
+	file0000_cp  file0001_cp  remove_duplicats.sh      split-file0000_cp  split-file0002  split-file0004
+	aiapple@ubuntu:~/git/my-bash-shell/remove_duplicates$ ./remove_duplicats.sh 
+	aiapple@ubuntu:~/git/my-bash-shell/remove_duplicates$ ls
+	file0000_cp  remove_duplicats.readme  split-file0000_cp  split-file0002  split-file0004
+	file0001_cp  remove_duplicats.sh      split-file0001     split-file0003  split-file0005
 
