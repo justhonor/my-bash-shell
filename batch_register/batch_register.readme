@@ -1,0 +1,26 @@
+#This is batch_register.readme 
+
+背景需求 
+
+	学生开学,学校需要为每一位学生在学校系统中注册账户
+	账户名：学号 
+	默认密码：学号
+
+功能介绍 
+	
+	以学号批量注册用户,并设置默认密码也为学号
+	在用户第一次登陆的时候，强制其更改密码。
+
+使用介绍
+	
+	当然创建用户需要root权限
+	zane@zane-V:~/git/my-bash-shell/batch_register$ ./batch_register.sh 150 5
+测试 
+
+	zane@zane-V:~/git/my-bash-shell/batch_register$ ./batch_register.sh 150 5
+	user:150
+	user:151
+	user:152
+	user:153
+	user:154
+
