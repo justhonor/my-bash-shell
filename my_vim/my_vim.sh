@@ -77,10 +77,11 @@ fi
 if [ $lastname == 'py' ] ;then
 	####可增加逻辑型增加
 	####如果文件存在则询问是否要删除
-	echo -e "#!/usr/bin/python \n" >> $1
+	echo -e "#!/usr/bin/python " >> $1
+	echo -e "#coding:utf-8\n" >> $1
 	IsShell
 elif [ $lastname == 'sh' ] ;then
-	echo -e "#!/bin/bash \n" >> $1
+	echo -e "#!/bin/bash " >> $1
 	IsShell
 elif [ $lastname == 'readme' ] ;then
 	echo -e "#This is $filename \n" >> $1
