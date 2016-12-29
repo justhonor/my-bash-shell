@@ -28,20 +28,14 @@ ls -lS | awk 'BEGIN {
 		}
 	};
 
-<<<<<<< HEAD
 	size=$5;name1=name2; #递推比较,即第二行和awk即将读取的第三行比较
 }' | sort > duplicate_files
  
 #删除后一个文件
 duplicates=`cat duplicate_files | awk '{print $NF}'`
 rm $duplicates duplicate_files
-=======
-	size=$5;name1=name2;
-}'
-
 
 #ls -lS | awk 'BEGIN{getline;} {system("md5sum "$9)}' >duplicate_files
->>>>>>> 9d39af5ff248312bd0e450175eec86130bc0dda5
 
 ####################方法二###############################
 #ls -lS | awk '{print $NF}' | tail -n +2 > file_name.t 
