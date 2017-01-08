@@ -1,6 +1,13 @@
 #脚本知识点总结
 #
 
+grep 
+	多条件查询
+	grep -E ".sh$|.py$|.pl$"
+	
+	判断字符参数是否为数字
+        if grep '^[[:digit:]]' <<<"$1" &>/dev/null && ;then
+
 awk  
 	getline
 		ls -lS | awk 'BEGIN{getline;}{"md5sum " $9 | getline;print $1 " " $2}'
@@ -56,9 +63,6 @@ id user1
 	判断user1用户是否存在
 	使用于：adminusers3.sh
 	
-判断字符参数是否为数字
-        使用grep判断
-        if grep '^[[:digit:]]' <<<"$1" &>/dev/null && ;then
 
 
 bash    -x  调试脚本
@@ -203,7 +207,4 @@ split
 
 	    )&
 	done
-
-
-
 
