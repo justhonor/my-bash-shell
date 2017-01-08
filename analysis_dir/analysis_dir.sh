@@ -63,7 +63,7 @@ fi
 #@echo "this is dir $dir"
 #遍历文件目录，找出文本行超过n行的重命名
 #复制到制定目录
-filetree=`tree -if $1` 
+filetree=`tree -if $1 | grep -E ".sh$|.py$|.pl$"` 
 
 FindFile()
 {
