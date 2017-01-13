@@ -9,7 +9,7 @@
 ##
 #############################################
 
-BASEDIR=/home/aiapple/git/my-bash-shell/find_max10file/cc
+BASEDIR=~/git/my-bash-shell/find_max10file/cc
 
 filenums=3
 

@@ -10,7 +10,7 @@
 #############################################
 
 AUTHLOG=auth.log 
-TOPN=2
+TOPN=3
 
 #AddHostName=0
 #except invalid user and find the intruders
@@ -80,7 +80,7 @@ do
 		stat=`cat log | grep "$USERT.*$IPS"| head -1 | awk '{print $1 " " $2 " " $3 }'`	
 		end=`cat log | grep "$USERT.*$IPS"| tail -1 | awk '{print $1 " " $2 " " $3 }'`	
 		TimeRange="$stat -->$end"
-		printf "%-5s|%-10s|%-10s|%-16s|%-13s|%s\n" "$i" "$USER" "${TIMES[$i]}" "${IPS[$i]}" "${HOST[$i]}" "$TimeRange"
+		printf "%-5s|%-10s|%-10s|%-16s|%-13s|%s" "$i" "$USER" "${TIMES[$i]}" "${IPS[$i]}" "${HOST[$i]}" "$TimeRange"
 		
 	done
 	#echo -e "执行下次循环"

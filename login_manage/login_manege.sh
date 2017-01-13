@@ -22,6 +22,7 @@ help_()
 	echo -e "删除\nlogin_manage.sh -d [ip|alias_name]\n"
 	echo -e "更改别名\nlogin_manage.sh -c source_alias_name destiant_alias_name\n"
 	echo -e "帮助\nlogin_manage.sh -h\n"
+	echo -e "查看\nlogin_manage.sh -l\n"
 }
 
 if [ $# == 5 ];then
