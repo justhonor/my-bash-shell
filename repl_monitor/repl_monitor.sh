@@ -18,7 +18,7 @@
  Last_error=`mysql -u test -h testmaster.co16f7xzvs0r.us-east-1.rds.amazonaws.com -P 3306 --password="00000000" -e "show slave status\G" | grep Last_error | awk '{ print $2 }'`
 
  echo -e "Slave_IO_Running:$Slave_IO_Running"
-echo -e "Slave_SQL_Running:$Slave_SQL_Running"
+ echo -e "Slave_SQL_Running:$Slave_SQL_Running"
 
 if [ $Slave_SQL_Running == 'No' ] || [ $Slave_IO_Running == 'No' ];
 

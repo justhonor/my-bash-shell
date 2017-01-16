@@ -1,4 +1,4 @@
-#脚本知识点总结
+e脚本知识点总结
 #
 
 grep 
@@ -7,6 +7,9 @@ grep
 	
 	判断字符参数是否为数字
         if grep '^[[:digit:]]' <<<"$1" &>/dev/null && ;then
+
+	判断参数是否为字符
+	if grep '^[[:alpha:]]' <<<"$1" &>/dev/null;then
 
 awk  
 	getline
@@ -234,3 +237,9 @@ ${}
 
 mail
 	mail -s "someone login the server" root < Report.t
+
+mysql 
+	将mysql执行结果返回给shell。
+	mysql -e
+		mysql -u test -h testmaster.co16f7xzvs0r.us-east-1.rds.amazonaws.com -P 3306 --password="00000000" -e "show slave status\G
+
