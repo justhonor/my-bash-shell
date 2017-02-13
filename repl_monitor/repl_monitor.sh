@@ -1,5 +1,4 @@
 #!/bin/bash 
-
 #############################################
 ##
 #文件名: repl_monitor.sh
@@ -9,25 +8,31 @@
 ##
 #############################################
 
+ DNS='datasyncva.co16f7xzvs0r.us-east-1.rds.amazonaws.com'
+ 
+ USER='devdb'
+
+ PWD='00000000'
+
  # get some slave stats
 
- Slave_IO_Running=`mysql -u test -h testmaster.co16f7xzvs0r.us-east-1.rds.amazonaws.com -P 3306 --password="00000000" -e "show slave status\G" | grep Slave_IO_Running | awk '{ print $2 }'`
+ Slave_IO_Running=`mysql -u $USER -h $DNS -P 3306 --password="$PWD" -e "show slave status\G" | grep Slave_IO_Running | awk '{ print $2 }'`
 
- Slave_SQL_Running=`mysql -u test -h testmaster.co16f7xzvs0r.us-east-1.rds.amazonaws.com -P 3306 --password="00000000" -e "show slave status\G" | grep Slave_SQL_Running | awk '{ print $2 }'`
+ Slave_SQL_Running=`mysql -u $USER -h $DNS -P 3306 --password="$PWD" -e "show slave status\G" | grep Slave_SQL_Running | awk '{ print $2 }'`
 
- Last_error=`mysql -u test -h testmaster.co16f7xzvs0r.us-east-1.rds.amazonaws.com -P 3306 --password="00000000" -e "show slave status\G" | grep Last_error | awk '{ print $2 }'`
+ Last_error=`mysql -u $USER -h $DNS -P 3306 --password="$PWD" -e "show slave status\G" | grep Last_error | awk '{ print $2 }'`
 
  echo -e "Slave_IO_Running:$Slave_IO_Running"
  echo -e "Slave_SQL_Running:$Slave_SQL_Running"
 
-if [ $Slave_SQL_Running == 'No' ] || [ $Slave_IO_Running == 'No' ];
+ if [ $Slave_SQL_Running == 'No' ] || [ $Slave_IO_Running == 'No' ];
 
  then
 
      echo "Last Error:" $Last_error | mail -s "Replication error on slavedb!!!" zane.zhang@zoom.us 
 
-  else
+ else
 	echo "Replication correct!!!"
  fi  
 
-exit 0
+ exit 0
