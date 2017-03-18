@@ -1,0 +1,13 @@
+Log_name	File_size
+mysql-bin-changelog.008079	2986
+mysql-bin-changelog.008095	489
+mysql-bin-changelog.008099	489
+mysql-bin-changelog.008001	489
+mysql-bin-changelog.008080	489
+mysql-bin-changelog.008081	177
+mysql-bin-changelog.008082	489
+mysql-bin-changelog.008083	489
+mysql-bin-changelog.008084	489
+mysql-bin-changelog.008085	489
+mysql-bin-changelog.008086	489
+mysql-bin-changelog.008087	489

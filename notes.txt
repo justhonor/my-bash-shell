@@ -1,5 +1,5 @@
-e脚本知识点总结
-#
+# 脚本知识点总结
+
 
 grep 
 	多条件查询
@@ -158,6 +158,15 @@ tr -d 删除字符串中指定字符
       00-00
       00-00	
       使用于:active_users.sh
+   -c 取代所有不属于第一字符集的字符；
+      zane@zane-V:~$ echo aa.,a 1 b#$bb 2 c*/cc 3 ddd 4 | tr -d -c '0-9 \n'
+      1  2  3  4
+      zane@zane-V:~$ echo aa.,a 1 b#$bb 2 c*/cc 3 ddd 4 | tr -d -c '0-9'
+      1234zane@zane-V:~$ echo aa.,a 1 b#$bb 2 c*/cc 3 ddd 4 | tr -d -c '0-9\n'
+      1234
+
+      tr -dc A-Za-z0-9_ < /dev/urandom | head -c 32 | xargs
+      使用与:generate_random_pw.sh
 
 插入RANK值
 	aiapple@ubuntu:~/git/my-bash-shell/active_users$ cat TIME 
