@@ -1,0 +1,26 @@
+#This is genereate_random_pwd.readme 
+
+背景需求 
+	
+	管理个密码在这其不安全的网络世界里是十分必要的
+	而生成密码则是管理密码的第一步。
+
+功能介绍 
+
+	由A-Za-z0-9_
+	生成N位的随机密码，默认32位
+
+使用介绍 
+
+	zane@zane-V:~/git/my-bash-shell/generate_random_pwd$ ./genereate_random_pwd.sh [N] 
+
+测试 
+	zane@zane-V:~/git/my-bash-shell/generate_random_pwd$ ./genereate_random_pwd.sh 
+	1Ei0zSpSLbwnr8wTLk10ebLp3gDosci4
+	zane@zane-V:~/git/my-bash-shell/generate_random_pwd$ ./genereate_random_pwd.sh 10
+	RtXFGMl34B
+	zane@zane-V:~/git/my-bash-shell/generate_random_pwd$ ./genereate_random_pwd.sh 5
+	u4ASm
+	zane@zane-V:~/git/my-bash-shell/generate_random_pwd$ ./genereate_random_pwd.sh 50
+	ROpD4YZTmYk1gyZ1ougIrQIYp7tI9z2Q7p0T8B3RIU0zSfysoQ
+
